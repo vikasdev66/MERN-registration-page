@@ -25,7 +25,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("/register", (req, res) => {
+app.post("/", (req, res) => {
   EmployeeModel.create(req.body)
     .then((employees) => res.json(employees))
     .catch((error) => res.json(error));

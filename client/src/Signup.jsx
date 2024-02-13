@@ -11,7 +11,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/register", { name, email, password })
+      .post("http://localhost:3001/", { name, email, password })
       .then((data) => {
         console.log(data);
         navigate('/login');

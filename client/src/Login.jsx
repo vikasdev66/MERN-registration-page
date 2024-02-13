@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -56,13 +57,16 @@ const Login = () => {
               }}
             />
           </div>
-          <button type="submit" className="btn btn-success text-black w-100 rounded-0">
+          <button
+            type="submit"
+            className="btn btn-success text-black w-100 rounded-0"
+          >
             Login
           </button>
         </form>
         <p>Do not have Account</p>
         <Link
-          to="/register"
+          to="/"
           className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
         >
           Signup
