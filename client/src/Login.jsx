@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { email, password })
+      .post("mern-registration-api.vercel.app/login", { email, password })
       .then((data) => {
         console.log(data);
         if (data.data === "Success") {
