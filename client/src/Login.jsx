@@ -7,11 +7,10 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("mern-registration-api.vercel.app/login", { email, password })
+      .post("http://localhost:3001/login", { email, password })
       .then((data) => {
         console.log(data);
         if (data.data === "Success") {
@@ -66,7 +65,7 @@ const Login = () => {
         </form>
         <p>Do not have Account</p>
         <Link
-          to="/"
+          to="/register"
           className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
         >
           Signup

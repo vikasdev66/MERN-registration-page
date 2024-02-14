@@ -5,10 +5,13 @@ const EmployeeModel = require("./models/Employee");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: ["mern-registration-frontend.vercel.app"], methods: ["POSt", "GET"], credentials: true }));
-mongoose.connect(
-  "mongodb+srv://vm66353:<newWord>@vikas.vfbf5tq.mongodb.net/employee?retryWrites=true&w=majority"
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+  })
 );
+mongoose.connect("mongodb://localhost:27017/employee");
 
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
@@ -25,7 +28,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.post("/", (req, res) => {
+app.post("/register", (req, res) => {
   EmployeeModel.create(req.body)
     .then((employees) => res.json(employees))
     .catch((error) => res.json(error));
